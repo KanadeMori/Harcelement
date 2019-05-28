@@ -104,3 +104,8 @@ liens=list(A.edges_iter())
 
 for n in noeuds:
     cree_html(n, liens)
+print ("les fichier html sont crrés")
+
+A.layout(prog="dot") # mise en forme graphique
+A.draw('mongraphe.svg')
+print ("le fichier mongraphe.svg est créé")
