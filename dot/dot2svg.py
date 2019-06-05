@@ -15,6 +15,10 @@ def cree_svg(A, target='mongraphe.svg', maxImgSize=100):
     # 
     image_pattern=re.compile(r'(.*)image="(.*)"(.*)')
     Adot = A.to_string().split("\n");
+    A=pgv.AGraph(directed=True).from_string("\n".join(Adot))
+    for n in A.nodes_iter():
+        print(dir(n))
+    """
     for i in range(len(Adot)):
         m=image_pattern.match(Adot[i])
         newsize=None
@@ -48,4 +52,5 @@ def cree_svg(A, target='mongraphe.svg', maxImgSize=100):
     print(A.to_string())
     A.layout(prog="dot") # mise en forme graphique
     A.draw(target)
+    """
     return
