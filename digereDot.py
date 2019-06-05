@@ -24,7 +24,7 @@ A=pgv.AGraph(      # création d'un graphe
 A.from_string(open("BD0.dot","r").read())
 
 cree_html(A, path="output")
-_=input("les fichier html sont créés dans le dossier output/ ;\nappuyez sur Entrée pour la suite")
+print("les fichier html sont créés dans le dossier output/ ;")
 
 cree_svg(A, target="mongraphe.svg")
-_ =input("le fichier mongraphe.svg est créé ;\nappuyez sur Entrée pour la suite")
+print("le fichier mongraphe.svg est créé.")

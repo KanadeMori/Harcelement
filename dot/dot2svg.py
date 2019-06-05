@@ -1,7 +1,7 @@
 
 import pygraphviz as pgv
-from PIL import Image
-import re, os
+from PIL import Image, ImageFont, ImageDraw
+import re, os, subprocess
 
 def cree_svg(A, target='mongraphe.svg', maxImgSize=100):
     """
@@ -11,46 +11,49 @@ def cree_svg(A, target='mongraphe.svg', maxImgSize=100):
     on crée une miniature dans le sous-répertoire mini/ qu'on substitue
     à l'image d'origine
     """
+    # effacement du répertoire missing/ des images manquantes
+    # et du répertoire mini/ des miniatures
+    subprocess.call("rm -rf missing/*", shell=True)
+    subprocess.call("rm -rf mini/*", shell=True)
+    
     # on exporte le Agraph sous forme d'une liste de lignes de code DOT
-    # 
-    image_pattern=re.compile(r'(.*)image="(.*)"(.*)')
+    # et on le relit, ce qui revient à en faire une copie profonde
     Adot = A.to_string().split("\n");
     A=pgv.AGraph(directed=True).from_string("\n".join(Adot))
+    
     for n in A.nodes_iter():
-        print(dir(n))
-    """
-    for i in range(len(Adot)):
-        m=image_pattern.match(Adot[i])
         newsize=None
-        if m:
-            #on a détecté une image
-            imgPath=m.group(2)
+        if "image" in n.attr.keys():
+            imgPath=n.attr["image"]
+            directory = os.path.dirname(imgPath)
+            basename  = os.path.basename(imgPath)
             if os.path.exists(imgPath):
                 img=Image.open(imgPath)
-                print(imgPath, img.size)
                 if img.size[0] > maxImgSize:
                     facteur=maxImgSize/img.size[0]
                     newsize=(int(img.size[0]*facteur), int(img.size[1]*facteur))
                 elif img.size[1] > maxImgSize:
                     facteur=maxImgSize/img.size[1]
                     newsize=(int(img.size[0]*facteur), int(img.size[1]*facteur))
-                print("newsize =", newsize)
                 if newsize != None:
                     img=img.resize(newsize)
-                    directory = os.path.dirname(imgPath)
-                    basename  = os.path.basename(imgPath)
                     destdir=os.path.join("mini", directory)
                     os.makedirs(destdir, exist_ok=True)
                     newPath=os.path.join(destdir, basename)
                     img.save(newPath)
-                    print("Miniature en", newPath)
-                    Adot[i]=f'{m.group(1)}image="{newPath}"{m.group(3)}'
+                    n.attr["image"]=newPath
             else:
-                print(imgPath, ": pas d'image")
-                pass
-    A=pgv.AGraph(directed=True).from_string("\n".join(Adot))
-    print(A.to_string())
+                font = ImageFont.truetype("sans-serif.ttf", 12)
+                color=(240,0,240)
+                img=Image.open("missing.jpg")
+                draw = ImageDraw.Draw(img)
+                draw.text((0, 0),"Image manquante",color,font=font)
+                draw.text((0, 26),basename,color,font=font)
+                destdir=os.path.join("missing", directory)
+                os.makedirs(destdir, exist_ok=True)
+                newPath=os.path.join(destdir, basename)
+                img.save(newPath)
+                n.attr["image"]=newPath
     A.layout(prog="dot") # mise en forme graphique
-    A.draw(target)
-    """
+    A.draw(target)           
     return

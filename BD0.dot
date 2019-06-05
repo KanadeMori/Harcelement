@@ -7,13 +7,13 @@ strict digraph "bd_interactive_harcelement" {
 	DEBUT -> H_temoin  [len=1.5, label="Choix : « le témoin »"];
 	DEBUT -> L_victime [len=1.5, label="Choix : « la victime »"];
 	
-	A01_tape_contre_la_porte [label="Je défonce la porte", image="A01_tape_contre_la_porte.jpg"];
-	A02_porte_s_ouvre [label="La porte s'ouvre", image="A02_porte_s_ouvre.jpg"];
-	A03_porte_ouverte [label="La porte est ouverte", image=".A03_porte_ouverte.jpg"];
-	A11_porte_fermee [label="La porte est fermée", image="A11_porte_fermee.jpg"];
-	A12_prend_poignee [label="Je tourne la poignée", image="A12_prend_poignee.jpg"];
-	A13_ouvre [label="La porte s'ouvre", image="A13_ouvre.jpg"];
-	A14_porte_ouverte [label="La porte est ouverte", image="A14_porte_ouverte.jpg"];
+	A01_tape_contre_la_porte [label="Je défonce la porte", image="PNG/A01_tape_contre_la_porte.jpg"];
+	A02_porte_s_ouvre [label="La porte s'ouvre", image="PNG/A02_porte_s_ouvre.jpg"];
+	A03_porte_ouverte [label="La porte est ouverte", image="PNG/.A03_porte_ouverte.jpg"];
+	A11_porte_fermee [label="La porte est fermée", image="PNG/A11_porte_fermee.jpg"];
+	A12_prend_poignee [label="Je tourne la poignée", image="PNG/A12_prend_poignee.jpg"];
+	A13_ouvre [label="La porte s'ouvre", image="PNG/A13_ouvre.jpg"];
+	A14_porte_ouverte [label="La porte est ouverte", image="PNG/A14_porte_ouverte.jpg"];
 	
 	A_mechant -> A01_tape_contre_la_porte [len=1.5, label="Défoncer la porte ?", timeout=10];
 	A_mechant ->  A11_porte_fermee [len=1.5, label="J'entre normalement"];
@@ -27,7 +27,7 @@ strict digraph "bd_interactive_harcelement" {
 	A13_ouvre -> A14_porte_ouverte [len=1.5, label="", timeout=1];
 	A14_porte_ouverte -> B_marche_dans_le_couloir [len=1.5, label="", timeout=1];
 	
-	B_marche_dans_le_couloir [label="Je marche dans le couloir", image="B_marche_dans_le_couloir.jpg"];
+	B_marche_dans_le_couloir [label="Je marche dans le couloir", image="PNG/B_marche_dans_le_couloir.jpg"];
 	B01_gauche [label="Gauche", image="PNG/gauche.png"];
 	B02_droite [label="Droite", image="PNG/droite.png"];
 	B03_gauche [label="Gauche", image="PNG/gauche.png"];
@@ -46,16 +46,16 @@ strict digraph "bd_interactive_harcelement" {
 	B06_droite -> C01_mechant_face_victime [len=1.5, label="J'insulte la victime ?", timeout=10];
 	B06_droite -> C11_marche [len=1.5, label="Je fais un croche-pied à la victime ?", timeout=10];
 	
-	C01_mechant_face_victime [label="Je suis face à la victime et je l'insulte", image="C01_mechant_face_victime.jpg"];
+	C01_mechant_face_victime [label="Je suis face à la victime et je l'insulte", image="PNG/C01_mechant_face_victime.jpg"];
 	
-	C11_marche [label="Je marche", image="C11_marche.jpg"];
-	C12_se_croise [label="Je croise la victime", image="C12_se_croise.jpg"];
-	C13_croche_pied [label="Je fais un croche-pied", image="C13_croche_pied.jpg"];
-	C14_tombe [label="La victime tombe", image="C14_tombe.jpg"];
-	C15_au_sol [label="Elle reste au sol", image="C01_au_sol.jpg"];
-	FIN01 [label="Fin n°1", image=".jpg"]
+	C11_marche [label="Je marche", image="PNG/C11_marche.jpg"];
+	C12_se_croise [label="Je croise la victime", image="PNG/C12_se_croise.jpg"];
+	C13_croche_pied [label="Je fais un croche-pied", image="PNG/C13_croche_pied.jpg"];
+	C14_tombe [label="La victime tombe", image="PNG/C14_tombe.jpg"];
+	C15_au_sol [label="Elle reste au sol", image="PNG/C01_au_sol.jpg"];
+	FIN01 [label="Fin n°1", image="PNG/fin.jpg"]
 	
-	D_se_releve [label="", image="D_se_releve.jpg"];
+	D_se_releve [label="", image="PNG/D_se_releve.jpg"];
 	
 	C01_mechant_face_victime -> FIN01 [len=1.5, label="", timeout=1];
 	
@@ -68,17 +68,17 @@ strict digraph "bd_interactive_harcelement" {
 	D_se_releve -> E01_insulte [len=1.5, label="Insulter la victime ?", timeout=10];
 	D_se_releve -> E11_cote_a_cote [len=1.5, label="Donner un coup de poing ?", timeout=10];
 	
-	E01_insulte [label="J'insulte la victime", image="E_insulte.jpg"];
-	FIN02 [label="Fin n°2", image=".jpg"];
+	E01_insulte [label="J'insulte la victime", image="PNG/E_insulte.jpg"];
+	FIN02 [label="Fin n°2", image="PNG/fin.jpg"];
 
 	E01_insulte -> FIN02 [len=1.5, label="", timeout=10];
 	
-	E11_cote_a_cote [label="Je suis à côté de la victime", image="F01_cote_a_cote.jpg"];
-	E12_en_garde [label="Je me prépare", image="F02_en_garde.jpg"];
-	E13_poing [label="Je donne un coup de poing", image="F03_poing.jpg"];
-	E14_etoiles [label="La victime se prend un coup", image="F04_etoiles.jpg"];
-	E15_a_terre [label="Elle tombe à terre", image="F05_a_terre.jpg"];
-	FIN03 [label="Fin n°3", image=".jpg"];
+	E11_cote_a_cote [label="Je suis à côté de la victime", image="PNG/F01_cote_a_cote.jpg"];
+	E12_en_garde [label="Je me prépare", image="PNG/F02_en_garde.jpg"];
+	E13_poing [label="Je donne un coup de poing", image="PNG/F03_poing.jpg"];
+	E14_etoiles [label="La victime se prend un coup", image="PNG/F04_etoiles.jpg"];
+	E15_a_terre [label="Elle tombe à terre", image="PNG/F05_a_terre.jpg"];
+	FIN03 [label="Fin n°3", image="PNG/fin.jpg"];
 	
 	E11_cote_a_cote -> E12_en_garde [len=1.5, label="", timeout=1];
 	E12_en_garde -> E13_poing [len=1.5, label="", timeout=1];
@@ -86,10 +86,10 @@ strict digraph "bd_interactive_harcelement" {
 	E14_etoiles -> E15_a_terre [len=1.5, label="", timeout=1];
 	E15_a_terre -> FIN03 [len=1.5, label="", timeout=1];
 	
-    H01_porte_ferme [label="La porte est fermée", image="H01_porte_ferme.jpg"];
-	H02_ouvre [label="J'ouvre la porte", image="H02_ouvre.jpg"]; 
-	H03_dans_encadrement [label="", image="H03_dans_encadrement.jpg"];
-	H04_passe_en_sifflant [label="Je passe en sifflant", image="H04_passe_en_sifflant.jpg"]
+    H01_porte_ferme [label="La porte est fermée", image="PNG/H01_porte_ferme.jpg"];
+	H02_ouvre [label="J'ouvre la porte", image="PNG/H02_ouvre.jpg"]; 
+	H03_dans_encadrement [label="", image="PNG/H03_dans_encadrement.jpg"];
+	H04_passe_en_sifflant [label="Je passe en sifflant", image="PNG/H04_passe_en_sifflant.jpg"]
 	
 	H_temoin -> H01_porte_ferme [len=1.5, label="", timeout=1];
 	H01_porte_ferme -> H02_ouvre [len=1.5, label="", timeout=1];
@@ -97,11 +97,11 @@ strict digraph "bd_interactive_harcelement" {
 	H03_dans_encadrement -> H04_passe_en_sifflant [len=1.5, label="", timeout=1];
 	H04_passe_en_sifflant -> I01_victime_au_loin [len=1.5, label="", timeout=1];
 	
-	I01_victime_au_loin [label="Je vois la victime au loin", image="I01_victime_au_loin.jpg"];
-	I02_voit_epaule_mechant [label="", image="I02_voit_epaule_mechant.jpg"];
-	I03_se_rapproche [label="Je me rapproche...", image="I03_se_rapproche.jpg"];
-	I04_se_rapproche_encore [label="encore...", image="I04_se_rapproche_encore.jpg"];
-	I05_presque_cote_a_cote [label="Je suis presque à côté", image="I05_presque_cote_a_cote.jpg"];
+	I01_victime_au_loin [label="Je vois la victime au loin", image="PNG/I01_victime_au_loin.jpg"];
+	I02_voit_epaule_mechant [label="", image="PNG/I02_voit_epaule_mechant.jpg"];
+	I03_se_rapproche [label="Je me rapproche...", image="PNG/I03_se_rapproche.jpg"];
+	I04_se_rapproche_encore [label="encore...", image="PNG/I04_se_rapproche_encore.jpg"];
+	I05_presque_cote_a_cote [label="Je suis presque à côté", image="PNG/I05_presque_cote_a_cote.jpg"];
 	
 	I01_victime_au_loin -> I02_voit_epaule_mechant [len=1.5, label="", timeout=1];
 	I02_voit_epaule_mechant -> I03_se_rapproche [len=1.5, label="", timeout=1];
@@ -109,19 +109,19 @@ strict digraph "bd_interactive_harcelement" {
 	I04_se_rapproche_encore -> I05_presque_cote_a_cote [len=1.5, label="", timeout=1];
 	I05_presque_cote_a_cote -> J_entend_du_bruit [len=1.5, label="", timeout=10];
 	
-	J_entend_du_bruit [label="J'entends un bruit", image="J_entend_du_bruit.jpg"];
-	J01_se_retourne [label="J'avance", image="J01_se_retourne.jpg"];
-	J02_boum [label="BOUM!", image="J02_boum.jpg"];
-	J03_de_dos [label="Je me retourne", image="J03_de_dos.jpg"];
-	J04_demi_retourne [label="Je regarde autour de moi", image="J04_demi_retourne.jpg"];
-	J05_retourne [label="Je vois le méchant", image="J05_retourne.jpg"];
+	J_entend_du_bruit [label="J'entends un bruit", image="PNG/J_entend_du_bruit.jpg"];
+	J01_se_retourne [label="J'avance", image="PNG/J01_se_retourne.jpg"];
+	J02_boum [label="BOUM!", image="PNG/J02_boum.jpg"];
+	J03_de_dos [label="Je me retourne", image="PNG/J03_de_dos.jpg"];
+	J04_demi_retourne [label="Je regarde autour de moi", image="PNG/J04_demi_retourne.jpg"];
+	J05_retourne [label="Je vois le méchant", image="PNG/J05_retourne.jpg"];
 	
-	J11_continue [label="Je continue", image="J11_continue.jpg"];
-	J12_de_dos [label="Je ne fais rien", image="J12_de_dos.jpg"];
-	J13_boum [label="BOUM!", image="J13_boum.jpg"];
-	J14_de_dos [label="Je ne me retourne pas", image="J14_de_dos.jpg"];
-	J15_de_dos [label="Je continue d'avancer", image="J15_de_dos.jpg"];
-	FIN04 [label="Fin n°4", image="FIN04.jpg"];
+	J11_continue [label="Je continue", image="PNG/J11_continue.jpg"];
+	J12_de_dos [label="Je ne fais rien", image="PNG/J12_de_dos.jpg"];
+	J13_boum [label="BOUM!", image="PNG/J13_boum.jpg"];
+	J14_de_dos [label="Je ne me retourne pas", image="PNG/J14_de_dos.jpg"];
+	J15_de_dos [label="Je continue d'avancer", image="PNG/J15_de_dos.jpg"];
+	FIN04 [label="Fin n°4", image="PNG/FIN04.jpg"];
 	
 	J_entend_du_bruit -> J01_se_retourne [len=1.5, label="", timeout=10];
 	J_entend_du_bruit -> J11_continue [len=1.5, label="", timeout=10];
@@ -138,15 +138,15 @@ strict digraph "bd_interactive_harcelement" {
 	J14_de_dos -> J15_de_dos [len=1.5, label="", timeout=1];
 	J15_de_dos -> FIN04 [len=1.5, label="", timeout=1];
 	
-	K_voit_la_victime_au_sol [label="Je vois la victime au sol", image="K_voit_la_victime_au_sol.jpg"];
-	K01_ne_dit_rien [label="Je ne dis rien", image="K01_ne_dit_rien.jpg"];
-	K02_victime_au_sol [label="Je laisse la victime", image="K02_victime_au_sol.jpg"];
-	FIN05 [label="Fin n°5", image="FIN05.jpg"];
+	K_voit_la_victime_au_sol [label="Je vois la victime au sol", image="PNG/K_voit_la_victime_au_sol.jpg"];
+	K01_ne_dit_rien [label="Je ne dis rien", image="PNG/K01_ne_dit_rien.jpg"];
+	K02_victime_au_sol [label="Je laisse la victime", image="PNG/K02_victime_au_sol.jpg"];
+	FIN05 [label="Fin n°5", image="PNG/FIN05.jpg"];
 	
-	K11_victime_au_sol [label="Je m'avance vers la victime", image="K11_victime_au_sol.jpg"];
-	K12_lui_tend_la_main [label="Je lui tends la main", image="K12_lui_tend_la_main.jpg"];
-	K13_aide_la_victime [label="Je l'aide à se relever", image="K13_aide_la_victime.jpg"];
-	FIN06 [label="", image="FIN06.jpg"];
+	K11_victime_au_sol [label="Je m'avance vers la victime", image="PNG/K11_victime_au_sol.jpg"];
+	K12_lui_tend_la_main [label="Je lui tends la main", image="PNG/K12_lui_tend_la_main.jpg"];
+	K13_aide_la_victime [label="Je l'aide à se relever", image="PNG/K13_aide_la_victime.jpg"];
+	FIN06 [label="", image="PNG/FIN06.jpg"];
 	
 	K_voit_la_victime_au_sol -> K01_ne_dit_rien [len=1.5, label="", timeout=10];
 	K_voit_la_victime_au_sol -> K11_victime_au_sol [len=1.5, label="", timeout=10];
@@ -158,10 +158,10 @@ strict digraph "bd_interactive_harcelement" {
 	K12_lui_tend_la_main -> K13_aide_la_victime  [len=1.5, label="", timeout=1];
 	K13_aide_la_victime -> FIN06  [len=1.5, label="", timeout=1];
 	
-    L01_porte_fermee [label="La porte est fermée", image="L01_porte_fermee.jpg"];
-	L02_prend_poignee  [label="Je prends la poignée", image="L02_prend_poignee.jpg"];
-	L03_ouvre  [label="La porte s'ouvre", image="L03_ouvre.jpg"];
-	L04_porte_ouverte [label="Je marche dans le couloir", image="L04_marche_dans_le_couloir.jpg"];
+    L01_porte_fermee [label="La porte est fermée", image="PNG/L01_porte_fermee.jpg"];
+	L02_prend_poignee  [label="Je prends la poignée", image="PNG/L02_prend_poignee.jpg"];
+	L03_ouvre  [label="La porte s'ouvre", image="PNG/L03_ouvre.jpg"];
+	L04_porte_ouverte [label="Je marche dans le couloir", image="PNG/L04_marche_dans_le_couloir.jpg"];
 	M01_gauche [label="Gauche", image="PNG/gauche.png"];
 	M02_droite [label="Droite", image="PNG/droite.png"];
 	M03_gauche [label="Gauche", image="PNG/gauche.png"];
@@ -179,18 +179,18 @@ strict digraph "bd_interactive_harcelement" {
 	M04_droite -> M05_gauche [len=1.5, label="", timeout=1];
 	M05_gauche -> N_recoit_un_coup_de_pied_tombe [len=1.5, label="", timeout=1];
 	
-	N_recoit_un_coup_de_pied_tombe [label="Je reçois un coup de pieds et je tombe", image="N_recoit_coup_de_pied_tombe.jpg"];
-	N01_au_sol [label="Je suis au sol", image="N01_au_sol.jpg"];
-	N02_a_quatre_pattes [label="Je suis à quatres pattes", image="N02_a_quatre_pattes.jpg"];
-	N03_a_genoux  [label="Je suis sur les genoux", image="N03_a_genoux.jpg"];
-	N04_debout [label="Je suis debout", image="N04_debout.jpg"];
-	O_insulter [label="J'insulte le méchant", image="O_insulter.jpg"];
-	FIN08 [label="Fin n°8", image="FIN08.jpg"];
-    FIN09 [label="Fin n°9", image="FIN08.jpg"];
+	N_recoit_un_coup_de_pied_tombe [label="Je reçois un coup de pieds et je tombe", image="PNG/N_recoit_coup_de_pied_tombe.jpg"];
+	N01_au_sol [label="Je suis au sol", image="PNG/N01_au_sol.jpg"];
+	N02_a_quatre_pattes [label="Je suis à quatres pattes", image="PNG/N02_a_quatre_pattes.jpg"];
+	N03_a_genoux  [label="Je suis sur les genoux", image="PNG/N03_a_genoux.jpg"];
+	N04_debout [label="Je suis debout", image="PNG/N04_debout.jpg"];
+	O_insulter [label="J'insulte le méchant", image="PNG/O_insulter.jpg"];
+	FIN08 [label="Fin n°8", image="PNG/FIN08.jpg"];
+    FIN09 [label="Fin n°9", image="PNG/FIN08.jpg"];
 
 	
-	N11_allongee [label="Je reste allongé", image="N11_allongee.jpg"];
-	FIN08 [label="Fin n°8", image="FIN08.jpg"];
+	N11_allongee [label="Je reste allongé", image="PNG/N11_allongee.jpg"];
+	FIN08 [label="Fin n°8", image="PNG/FIN08.jpg"];
 	
 	N_recoit_un_coup_de_pied_tombe -> N01_au_sol [len=1.5, label="", timeout=10]
 	N_recoit_un_coup_de_pied_tombe -> N11_allongee [len=1.5, label="", timeout=10];
